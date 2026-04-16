@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Arial, system-ui, sans-serif;
+  --color-primary: #2563eb;
+  --color-secondary: #06b6d4;
+  --color-accent: #f59e0b;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-[12px] border border-white/50 shadow-[0_20px_40px_rgba(0,0,0,0.05)];
+  }
+  .glass-header {
+    @apply bg-white/70 backdrop-blur-[8px] border-b border-black/5 shadow-none;
+  }
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-[12px] border border-white/50 shadow-[0_10px_25px_rgba(0,0,0,0.03)] rounded-[24px];
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  .text-gradient-metal {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary;
+  }
+  .badge-primary {
+    @apply inline-block bg-blue-600/10 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  .btn-accent {
+    @apply bg-accent text-white shadow-[0_4px_12px_rgba(245,158,11,0.3)] hover:bg-amber-600 transition-colors border-none;
+  }
+  .btn-primary {
+    @apply bg-primary text-white rounded-full text-[13px] font-medium hover:bg-blue-700 transition-colors border-none;
+  }
+  .mockup-dark {
+    @apply bg-[#1e293b] rounded-[20px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)];
+  }
+  .mockup-overlay {
+    @apply bg-white rounded-xl shadow-[0_10px_15px_rgba(0,0,0,0.1)];
+  }
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden;
+}
+
+/* Background blob animations */
+.bg-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(37,99,235,0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(6,182,212,0.1) 0%, transparent 40%);
+}
+
