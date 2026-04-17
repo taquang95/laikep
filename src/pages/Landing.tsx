@@ -273,7 +273,7 @@ function AuthorSection() {
             <p className="text-brand-accent font-bold uppercase tracking-widest text-sm italic">Cố vấn Tài chính & Bất động sản chuyên nghiệp</p>
           </div>
           <p className="text-slate-400 text-lg leading-relaxed max-w-2xl font-medium">
-            "Hơn 8 năm kinh nghiệm thực chiến trong lĩnh vực Tư vấn BĐS & Tài chính, tôi hiểu rằng <span className="text-white italic underline underline-offset-4 decoration-white/20">không phải thu nhập thấp</span> cản trở anh chị mua nhà, mà chính là <span className="text-white font-bold">thiếu đi một lộ trình tài chính khoa học</span>."
+            "Hơn 4 năm kinh nghiệm thực chiến trong lĩnh vực Tư vấn BĐS & Tài chính, tôi hiểu rằng <span className="text-white italic underline underline-offset-4 decoration-white/20">không phải thu nhập thấp</span> cản trở anh chị mua nhà, mà chính là <span className="text-white font-bold">thiếu đi một lộ trình tài chính khoa học</span>."
           </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a href="tel:0987182666" className="flex items-center space-x-3 text-white/80 hover:text-white font-bold uppercase tracking-widest text-[11px] transition-colors border border-white/10 px-4 py-2 rounded-full">
