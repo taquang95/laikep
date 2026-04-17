@@ -21,8 +21,8 @@ async function startServer() {
     try {
       const { firstname, email } = req.body;
       
-      const MAUTIC_URL = process.env.MAUTIC_URL || "https://crm.nambds.vn";
-      const FORM_ID = process.env.MAUTIC_FORM_ID || "10";
+      const MAUTIC_URL = "https://crm.nambds.vn";
+      const FORM_ID = "10";
 
       const formData = new URLSearchParams();
       // Chú ý: Ở form gốc Mautic, trường "Họ và tên" thực sự đang bị đánh vần sai thành "firtsname" (chữ 't' đứng trước 's').
