@@ -503,10 +503,17 @@ function LeadFormSection({ navigate }: { navigate: any }) {
         body: JSON.stringify(data)
       });
       
+      const result = await res.json();
+      
       if (!res.ok && res.status !== 302 && res.status !== 200) {
-        throw new Error("Có lỗi xảy ra, vui lòng thử lại!");
+        throw new Error(result.error || "Có lỗi xảy ra, vui lòng thử lại!");
       }
-      navigate("/thank-you");
+
+      if (result.success) {
+        navigate("/thank-you");
+      } else {
+        throw new Error(result.error || "Gửi dữ liệu thất bại");
+      }
     } catch (err: any) {
       setError(err.message || "Lỗi kết nối máy chủ");
     } finally {

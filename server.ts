@@ -25,9 +25,9 @@ async function startServer() {
       const FORM_ID = "10";
 
       const formData = new URLSearchParams();
-      // Chú ý: Ở form gốc Mautic, trường "Họ và tên" thực sự đang bị đánh vần sai thành "firtsname" (chữ 't' đứng trước 's').
-      // Chúng ta phải map đúng giá trị 'firtsname' thì Mautic mới nhận diện được dữ liệu.
+      // Supporting both common spellings just in case
       formData.append("mauticform[firtsname]", firstname || "");
+      formData.append("mauticform[firstname]", firstname || "");
       formData.append("mauticform[email]", email || "");
       formData.append("mauticform[formId]", FORM_ID);
       formData.append("mauticform[return]", "");
@@ -44,13 +44,14 @@ async function startServer() {
       });
 
       if (!response.ok && response.status !== 302) {
-        console.warn("Mautic returned status:", response.status);
+        const errorText = await response.text();
+        console.warn("Mautic returned status:", response.status, errorText);
       }
 
       res.status(200).json({ success: true });
     } catch (error) {
       console.error("Submit form error:", error);
-      res.status(500).json({ success: false, error: "Failed to submit form" });
+      res.status(500).json({ success: false, error: "Lỗi máy chủ khi gửi dữ liệu" });
     }
   });
 
