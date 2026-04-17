@@ -491,10 +491,18 @@ function LeadFormSection({ navigate }: { navigate: any }) {
     setError("");
 
     const formData = new FormData(e.currentTarget);
-    const data = {
-      firstname: formData.get("firstname"),
-      email: formData.get("email")
-    };
+    const firstname = formData.get("firstname") as string;
+    const email = formData.get("email") as string;
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Email không đúng định dạng. Vui lòng kiểm tra lại (ví dụ: nambds@gmail.com)");
+      setLoading(false);
+      return;
+    }
+
+    const data = { firstname, email };
 
     try {
       const res = await fetch("/api/submit-form", {
