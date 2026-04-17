@@ -602,7 +602,7 @@ function LeadFormSection({ navigate }: { navigate: any }) {
                   <Loader2 className="animate-spin w-6 h-6" />
                 ) : (
                   <span className="flex items-center space-x-3">
-                    <span>Nhận lộ trình ngay</span>
+                    <span>NHẬN FILE NGAY</span>
                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </span>
                 )}
